@@ -18,11 +18,8 @@ function createTask() {
 }
 //readDate
 function readData() {
-    
+    listContainer.innerHTML=""
     for (let i = 0; i < data.length; i++) { 
-        let li =document.createElement("li")
-        li.innerHTML=`${data[i].taskInput}`
-        listContainer.appendChild(li)
+        listContainer.innerHTML+=`<li>${data[i].taskInput}</li>`
     }
-    
 }
