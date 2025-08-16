@@ -1,7 +1,6 @@
 "use strict";
 const taskInput = document.getElementById("task-input");
 const listContainer = document.getElementById("list-container");
-//read
 window.onload = readData;
 // create task
 let data = localStorage.getItem("tasks") ? JSON.parse(localStorage.tasks) : [];
@@ -17,8 +16,10 @@ function createTask() {
 }
 //readDate
 function readData() {
-    listContainer.innerHTML = "";
+    listContainer.textContent = "";
     for (let i = 0; i < data.length; i++) {
-        listContainer.innerHTML += `<li>${data[i].taskInput}</li>`;
+        let li = document.createElement("li");
+        li.textContent += data[i].taskInput;
+        listContainer.appendChild(li);
     }
 }

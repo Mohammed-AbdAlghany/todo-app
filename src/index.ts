@@ -1,7 +1,5 @@
 const taskInput =document.getElementById("task-input") as HTMLInputElement
 const listContainer = document.getElementById("list-container") as HTMLUListElement
-
-//read
 window.onload=readData
 
 // create task
@@ -16,10 +14,14 @@ function createTask() {
     taskInput.value=""
     readData()
 }
+
 //readDate
 function readData() {
-    listContainer.innerHTML=""
+    listContainer.textContent=""
     for (let i = 0; i < data.length; i++) { 
-        listContainer.innerHTML+=`<li>${data[i].taskInput}</li>`
-    }
+        let li = document.createElement("li")
+        li.textContent+=data[i].taskInput
+        listContainer.appendChild(li) 
+       }
+       
 }
