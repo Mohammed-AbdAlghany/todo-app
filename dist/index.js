@@ -2,6 +2,7 @@
 const taskInput = document.getElementById("task-input");
 const listContainer = document.getElementById("list-container");
 //read
+window.onload = readData;
 // create task
 let data = localStorage.getItem("tasks") ? JSON.parse(localStorage.tasks) : [];
 function createTask() {
@@ -17,6 +18,8 @@ function createTask() {
 //readDate
 function readData() {
     for (let i = 0; i < data.length; i++) {
-        listContainer.innerHTML = `<li>${data.taskInput}</li>`;
+        let li = document.createElement("li");
+        li.innerHTML = `${data[i].taskInput}`;
+        listContainer.appendChild(li);
     }
 }
